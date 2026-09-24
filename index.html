@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spot the Hazard — Warehouse Safety 360°</title>
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<div id="titleScreen">
+  <div class="grid"></div>
+  <div class="scanline"></div>
+  <div class="glowIcon i1">📦</div>
+  <div class="glowIcon i2">⚠️</div>
+  <div class="glowIcon i3">🏭</div>
+  <div id="titleContent">
+    <h1 class="logo">SPOT THE<br><span>HAZARD</span></h1>
+    <div class="logoSub">Warehouse Safety Walkthrough</div>
+    <div class="chipRow">
+      <div class="chip"><b>9</b> warning signs to find</div>
+      <div class="chip">Answer quizzes · <b>+10 / −5</b></div>
+    </div>
+    <button id="playBtn" class="gameBtn">▶ Play Game</button>
+    <div style="display:flex; gap:16px; justify-content:center; margin-top:20px;">
+      <button id="howToPlayBtn" class="pillBtn">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+        How to Play
+      </button>
+      <button id="settingsBtnHome" class="pillBtn">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Settings
+      </button>
+    </div>
+    <div id="rulesPanel" class="hidden">
+      <p>You're doing a live safety walkthrough of this warehouse. Hidden around the room are
+      <b>9 warning signs</b> — each one marks a real hazard.</p>
+      <div class="rule"><span class="dot good"></span> Find a sign, answer the quiz correctly → <b style="color:var(--good)">+10 points</b></div>
+      <div class="rule"><span class="dot bad"></span> Answer incorrectly → <b style="color:var(--accent2)">−5 points</b></div>
+      <p style="margin-top:10px;">Move with <b>WASD or Arrow keys</b>. Click-and-drag (or touch-drag) to look around in 360°. Click a <b>⚠️ warning sign</b> to start the quiz. Find and answer all 9 to finish the audit.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Settings Modal -->
+<div id="settingsModal" class="hidden" style="position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(4px);">
+  <div style="background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;padding:24px;width:300px;color:var(--paper);text-align:left;">
+    <h2 style="margin-top:0;color:var(--accent);">Settings</h2>
+    <div style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-size:14px;">Look Sensitivity</label>
+      <input type="range" id="sensSlider" min="0.1" max="2.5" step="0.1" value="1.0" style="width:100%;">
+    </div>
+    <div style="text-align:right;">
+      <button id="closeSettingsBtn" class="gameBtnGhost" style="padding:8px 16px;font-size:13px;">Close</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/src/start.js"></script>
+</body>
+</html>

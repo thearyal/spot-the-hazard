@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety Quiz — Spot the Hazard</title>
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<div id="quizScreen">
+  <div class="grid"></div>
+  <div class="scanline"></div>
+
+  <div id="quizContent">
+    <div id="quizActive">
+      <div class="quizTopRow">
+        <div class="quizKicker">Warehouse Safety Quiz</div>
+        <div class="quizCounter" id="quizCounter">Question 1 / 9</div>
+      </div>
+      <div class="progressTrack"><div class="progressFill" id="progressFill"></div></div>
+
+      <div class="quizCard">
+        <div class="quizQuestion" id="quizQuestion">Loading question…</div>
+        <div class="quizOptions" id="quizOptions"></div>
+        <div class="quizFeedback hidden" id="quizFeedback"></div>
+      </div>
+
+      <div class="quizFooterRow">
+        <div class="quizScoreChip">Score: <b id="quizScoreLive">0</b> / 9</div>
+        <button id="nextBtn" class="gameBtn hidden">Next Question →</button>
+      </div>
+    </div>
+
+    <div id="quizDone" class="hidden">
+      <div class="rankBadge" id="quizRankBadge">
+        <span id="quizRankIcon">🏆</span>
+      </div>
+      <div class="rankKicker">Quiz Result</div>
+      <div class="rankName" id="quizRankName">Great Job</div>
+      <div class="scoreBig" id="quizScoreBig">0</div>
+      <div class="scoreBigLabel">Correct out of 9</div>
+      <div class="resultBtns">
+        <button id="playFromQuizBtn" class="gameBtn">▶ Play Game</button>
+        <button id="retakeBtn" class="gameBtnGhost">↻ Retake Quiz</button>
+        <button id="quizHomeBtn" class="gameBtnGhost">Home</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/src/quiz.js"></script>
+</body>
+</html>

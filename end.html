@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Complete — Spot the Hazard</title>
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<div id="resultScreen">
+  <div class="grid"></div>
+  <div class="scanline"></div>
+
+  <div id="resultContent">
+    <div class="rankBadge" id="rankBadge">
+      <span id="rankIcon">🏆</span>
+      <div class="gradeLetter" id="gradeLetter">S</div>
+    </div>
+
+    <div class="rankKicker">Audit Result</div>
+    <div class="rankName" id="rankName">Perfect Audit</div>
+
+    <div id="timeoutMsg" class="timeoutBanner hidden">⏰ Time's Up — Audit Incomplete</div>
+    <div id="certTier" class="certBadge">
+      <span id="certIcon">🏅</span>
+      <span id="certName">Certified Safety Inspector</span>
+    </div>
+
+    <div class="starsRow" id="starsRow">
+      <span id="star1">★</span>
+      <span id="star2">★</span>
+      <span id="star3">★</span>
+    </div>
+
+    <div class="scoreBig" id="scoreBig">0</div>
+    <div class="scoreBigLabel">Final Score</div>
+
+    <div class="statGrid">
+      <div class="statPill"><div class="k">Time Taken</div><div class="v" id="finalTime">00:00</div></div>
+      <div class="statPill"><div class="k">Hazards Found</div><div class="v" id="finalFound">0 / 8</div></div>
+      <div class="statPill"><div class="k">Wrong Clicks</div><div class="v" id="finalWrong">0</div></div>
+    </div>
+
+    <div id="newBestBadge" class="newBest hidden">★ New Best Score</div>
+
+    <div class="resultBtns">
+      <button id="restartBtn" class="gameBtn">↻ Play Again</button>
+      <button id="homeBtn" class="gameBtnGhost">Home</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/src/end.js"></script>
+</body>
+</html>

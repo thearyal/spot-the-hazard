@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spot the Hazard — Playing</title>
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+<div id="loading"><div class="spin"></div>Building the warehouse…</div>
+
+<div id="canvasWrap"></div>
+
+<div id="hud" class="hidden">
+  <div class="topbar">
+    <div class="badge" id="score"><div class="label">Score</div><div class="value" id="scoreVal">0</div></div>
+    <div class="badge"><div class="label">Time</div><div class="value" id="timeVal">00:00</div></div>
+    <div class="badge"><div class="label">Hazards Found</div><div class="value" id="foundVal">0 / 9</div></div>
+    <div class="badge streakBadge" id="streakBadge" style="display:none;"><div class="label">Streak</div><div class="value" id="streakVal">🔥 0</div></div>
+    <button id="settingsBtnGame" style="pointer-events:auto;background:linear-gradient(135deg, rgba(15,43,36,0.92), rgba(10,30,24,0.96));border:1px solid var(--panel-line);border-radius:12px;padding:12px;color:var(--paper);backdrop-filter:blur(12px);box-shadow:0 8px 32px rgba(0,0,0,.45);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">⚙️</button>
+  </div>
+  <div id="crosshair"></div>
+  <div id="toast"></div>
+  <div id="hint"><b>WASD/Arrows</b> to move · Drag to look around · Click a <b>⚠️ warning sign</b> to answer the quiz</div>
+</div>
+
+<!-- Info Card Modal -->
+<div id="infoModal" class="hidden">
+  <div id="infoModalBackdrop"></div>
+  <div id="infoModalCard">
+    <div class="quizModalHeader">
+      <div class="quizModalIcon">⚠️</div>
+      <div class="quizModalTitle" id="infoModalTitle">Hazard Spotted!</div>
+    </div>
+    <div class="infoModalDesc" id="infoModalDesc">Loading…</div>
+    <div class="infoModalFooter">
+      <button id="infoModalStartQuiz" class="quizModalBtn">Start Quiz →</button>
+    </div>
+  </div>
+</div>
+
+<!-- In-game Quiz Modal -->
+<div id="quizModal" class="hidden">
+  <div id="quizModalBackdrop"></div>
+  <div id="quizModalCard">
+    <div class="quizModalHeader">
+      <div class="quizModalIcon">⚠️</div>
+      <div class="quizModalTitle" id="quizModalTitle">Hazard Identified!</div>
+    </div>
+    <div id="quizTimerBar"><div id="quizTimerFill"></div><span id="quizTimerText">18s</span></div>
+    <div class="quizModalQuestion" id="quizModalQuestion">Loading question…</div>
+    <div class="quizModalOptions" id="quizModalOptions"></div>
+    <div class="quizModalFeedback hidden" id="quizModalFeedback"></div>
+    <div class="quizModalFooter">
+      <div class="quizModalScore">Score: <b id="quizModalScore">0</b></div>
+      <button id="quizModalClose" class="quizModalBtn hidden">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Settings Modal -->
+<div id="settingsModal" class="hidden" style="position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(4px);">
+  <div style="background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;padding:24px;width:300px;color:var(--paper);text-align:left;font-family:'Segoe UI',system-ui,sans-serif;">
+    <h2 style="margin-top:0;color:var(--accent);">Settings</h2>
+    <div style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-size:14px;">Look Sensitivity</label>
+      <input type="range" id="sensSlider" min="0.1" max="2.5" step="0.1" value="1.0" style="width:100%;">
+    </div>
+    <div style="display:flex;gap:12px;margin-top:8px;">
+      <button id="quitBtnGame" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,93,93,0.12);border:1px solid rgba(255,93,93,0.35);color:#ff8a8a;padding:10px 16px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:0.03em;transition:background 0.2s,border-color 0.2s;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        Quit Game
+      </button>
+      <button id="closeSettingsBtn" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(91,232,154,0.12);border:1px solid rgba(91,232,154,0.35);color:#5be89a;padding:10px 16px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:0.03em;transition:background 0.2s,border-color 0.2s;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Resume
+      </button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/src/game.js"></script>
+</body>
+</html>

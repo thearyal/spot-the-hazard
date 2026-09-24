@@ -1,0 +1,18 @@
+{
+  "name": "spot-the-hazard-warehouse-safety-game",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A 360° browser game where players walk through a virtual office and spot safety hazards for points.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
