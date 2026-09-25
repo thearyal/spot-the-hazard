@@ -10,6 +10,8 @@ The whole scene — walls, floor, cartons, signage, textures — is generated at
 the Canvas API and Three.js primitives, so the project ships with **no external image or
 3D-model assets**.
 
+**Deployment Link:** https://spot-the-hazard-game.netlify.app/
+
 ---
 
 ## Table of contents
